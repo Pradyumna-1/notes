@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { addToNote, updateToNote } from "../redux/noteSlice";
 
@@ -12,6 +12,16 @@ const Home = () => {
   const noteId = searchParams.get("noteId");
 
   const dispatch = useDispatch();
+
+  const AllNotes = useSelector((state) => state.note.notes);
+
+  useEffect(() => {
+    if (noteId) {
+      const note = AllNotes.find((n) => n._id === noteId);
+      setTitle(note.title);
+      setValue(note.content);
+    }
+  }, [noteId]);
 
   function createNote() {
     const note = {

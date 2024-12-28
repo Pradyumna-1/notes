@@ -6,7 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Notes from "./components/Notes";
-import AllNotes from "./components/AllNotes";
+// import AllNotes from "./components/AllNotes";
+import ViewNotes from "./components/ViewNotes";
 
 function App() {
   const router = createBrowserRouter([
@@ -35,7 +36,7 @@ function App() {
         <div>
           <Navbar />
 
-          <AllNotes />
+          <ViewNotes />
         </div>
       ),
     },

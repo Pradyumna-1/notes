@@ -26,11 +26,37 @@ const noteSlice = createSlice({
       const note = action.payload;
       state.notes.push(note);
       localStorage.setItem("notes", JSON.stringify(state.notes));
-      toast("Note Added successfully 🙂");
+      toast.success("Note Added successfully 🙂");
     },
-    updateToNote: (state, action) => {},
-    resetToNote: (state, action) => {},
-    removeFromNote: (state, action) => {},
+    updateToNote: (state, action) => {
+      const note = action.payload;
+      const index = state.notes.findIndex((item) => 
+        item._id === note._id)
+
+        if (index >= 0) {
+          state.notes[index] = note;
+          localStorage.setItem("notes", JSON.stringify(state.notes));
+          toast.success("Notes Updated");
+        }
+      
+    },
+
+
+    
+    resetToNote: (state, action) => {
+      state.notes = [];
+      localStorage.removeItem("notes");
+    },
+    removeFromNote: (state, action) => {
+      const noteId = action.payload;
+      console.log(noteId);
+      const index = state.notes.findIndex((item) => item._id === noteId);
+      if (index >= 0) {
+        state.notes.splice(index, 1);
+        localStorage.setItem("notes", JSON.stringify(state.notes));
+        toast.success("Note Deleted");
+      }
+    },
   },
 });
 export const { addToNote, updateToNote, resetToNote, removeFromNote } =

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AllNotes = () => {
+const ViewNotes = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const AllNotes = () => {
   )
 }
 
-export default AllNotes
+export default ViewNotes
