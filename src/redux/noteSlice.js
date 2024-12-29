@@ -30,19 +30,15 @@ const noteSlice = createSlice({
     },
     updateToNote: (state, action) => {
       const note = action.payload;
-      const index = state.notes.findIndex((item) => 
-        item._id === note._id)
+      const index = state.notes.findIndex((item) => item._id === note._id);
 
-        if (index >= 0) {
-          state.notes[index] = note;
-          localStorage.setItem("notes", JSON.stringify(state.notes));
-          toast.success("Notes Updated");
-        }
-      
+      if (index >= 0) {
+        state.notes[index] = note;
+        localStorage.setItem("notes", JSON.stringify(state.notes));
+        toast.success("Notes Updated");
+      }
     },
 
-
-    
     resetToNote: (state, action) => {
       state.notes = [];
       localStorage.removeItem("notes");

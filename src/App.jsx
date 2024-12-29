@@ -31,7 +31,7 @@ function App() {
     },
 
     {
-      path: "/notes:id",
+      path:"/notes/:id",
       element: (
         <div>
           <Navbar />
