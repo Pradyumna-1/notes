@@ -1,13 +1,11 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Notes from "./components/Notes";
-// import AllNotes from "./components/AllNotes";
 import ViewNotes from "./components/ViewNotes";
+import DayNightToggle from "./components/ColorSwitcher/DayNightToggle";
 
 function App() {
   const router = createBrowserRouter([
@@ -29,23 +27,22 @@ function App() {
         </div>
       ),
     },
-
     {
-      path:"/notes/:id",
-      // path:"/pastes/:id",
+      path: "/notes/:id",
       element: (
         <div>
           <Navbar />
-
           <ViewNotes />
         </div>
       ),
     },
   ]);
+
   return (
-    <>
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+      <DayNightToggle />
       <RouterProvider router={router} />
-    </>
+    </div>
   );
 }
 

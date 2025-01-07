@@ -1,0 +1,27 @@
+App.css
+
+/* Default light theme (light mode) */
+body {
+  background-color: #ffffff;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark theme (when dark mode is active) */
+body.dark {
+  background-color: #333;
+  color: #ffffff;
+}
+
+/* Add styles for other elements if needed */
+button {
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+button:focus {
+  outline: none;
+}
