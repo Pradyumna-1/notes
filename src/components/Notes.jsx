@@ -69,30 +69,30 @@ const Notes = () => {
 
                     <div className="flex flex-col gap-y-4 sm:items-end">
                       <div className="flex gap-2 flex-wrap sm:flex-nowrap">
-                        <button className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7] hover:bg-transparent group hover:border-blue-500">
+                        <button className="p-2 rounded-[0.2rem]  border border-[#c7c7c7] hover:bg-transparent group hover:border-blue-500">
                           <Link to={`/?noteId=${note?._id}`}>
                             <PencilLine
-                              className="text-black group-hover:text-blue-500"
+                              className=" group-hover:text-blue-500"
                               size={20}
                             />
                           </Link>
                         </button>
                         {/* View Button */}
-                        <button className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7]  hover:bg-transparent group hover:border-orange-500">
+                        <button className="p-2 rounded-[0.2rem]  border border-[#c7c7c7]  hover:bg-transparent group hover:border-orange-500">
                           <Link to={`/notes/${note?._id}`}>
                             <Eye
-                              className="text-black group-hover:text-orange-500"
+                              className=" group-hover:text-orange-500"
                               size={20}
                             />
                           </Link>
                         </button>
                         {/* Delete button */}
                         <button
-                          className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7]  hover:bg-transparent group hover:border-rose-500"
+                          className="p-2 rounded-[0.2rem]  border border-[#c7c7c7]  hover:bg-transparent group hover:border-rose-500"
                           onClick={() => handleDelete(note?._id)}
                         >
                           <Trash2
-                            className="text-black
+                            className="
                       
                              group-hover:text-rose-600"
                             size={20}
@@ -101,26 +101,26 @@ const Notes = () => {
 
                         {/* Coppy button */}
                         <button
-                          className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7]  hover:bg-transparent group hover:border-green-500"
+                          className="p-2 rounded-[0.2rem]  border border-[#c7c7c7]  hover:bg-transparent group hover:border-green-500"
                           onClick={() => {
                             navigator.clipboard.writeText(note?.content);
                             toast.success("Copied to clipboard");
                           }}
                         >
                           <Copy
-                            className="text-black group-hover:text-green-500"
+                            className=" group-hover:text-green-500"
                             size={20}
                           />
                         </button>
 
                         {/* I have to do the share button by my self */}
-                        <button className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7]  hover:bg-transparent group hover:border-fuchsia-500">
-                          <ExternalLink className="text-black group-hover:text-fuchsia-500" />
+                        <button className="p-2 rounded-[0.2rem]  border border-[#c7c7c7]  hover:bg-transparent group hover:border-fuchsia-500">
+                          <ExternalLink className=" group-hover:text-fuchsia-500" />
                         </button>
                       </div>
                       {/* Date  */}
                       <div className="gap-x-2 flex">
-                        <Calendar className="text-black" size={20} />
+                        <Calendar className="" size={20} />
                         {FormatDate(note.createdAt)}
                       </div>
                     </div>
