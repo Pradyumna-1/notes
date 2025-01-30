@@ -30,6 +30,26 @@ const Notes = () => {
     dispatch(removeFromNote(noteId));
   }
 
+  const handleShare = async (note) => {
+    const shareData = {
+      title: note.title,
+      text: note.content,
+      url: `${window.location.origin}/notes/${note._id}`,
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        toast.success("Note shared successfully ");
+      } catch (error) {
+        console.error("Error sharing:", error);
+        toast.error("Error sharing the note.");
+      }
+    } else {
+      navigator.clipboard.writeText(shareData.url);
+      toast.success("Link copied to clipboard!");
+    }
+  };
+
   return (
     <div className="w-full h-full py-10 max-w-[1200px] mx-auto px-5 lg:px-0">
       <div className="flex flex-col gap-y-3">
@@ -107,15 +127,18 @@ const Notes = () => {
                             toast.success("Copied to clipboard");
                           }}
                         >
+                    
                           <Copy
                             className=" group-hover:text-green-500"
                             size={20}
                           />
                         </button>
-
-                        {/* I have to do the share button by my self */}
+{/* Share Button  */}
                         <button className="p-2 rounded-[0.2rem]  border border-[#c7c7c7]  hover:bg-transparent group hover:border-fuchsia-500">
-                          <ExternalLink className=" group-hover:text-fuchsia-500" />
+                          <ExternalLink
+                            className=" group-hover:text-fuchsia-500"
+                            onClick={() => handleShare(note)}
+                          />
                         </button>
                       </div>
                       {/* Date  */}

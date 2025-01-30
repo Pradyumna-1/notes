@@ -10,28 +10,7 @@ const ViewNotes = () => {
   const note = AllNotes.find((n) => n._id === id);
 
   return (
-    // <div>
-    //   <div className="flex flex-row gap-7 place-content-center pl-4 ">
-    //     <input
-    //       className="p-1 mt-2 rounded-2xl w-[66%] pl-4"
-    //       type="text"
-    //       placeholder="Write your title here.. "
-    //       value={note.title}
-    //       onChange={(e) => setTitle(e.target.value)}
-    //       disabled
-    //     />
-    //   </div>
-    //   <div className="mt-8 flex  justify-center">
-    //     <textarea
-    //       className="p-4 mt-4 bg-blue-200 rounded-2xl min-w-[500px]"
-    //       placeholder="Enter your content..."
-    //       value={note.content}
-    //       onChange={(e) => setValue(e.target.value)}
-    //       rows={20}
-    //       disabled
-    //     />
-    //   </div>
-    // </div>
+   
 
     <div className="w-full h-full py-10 max-w-[1200px] mx-auto px-5 lg:px-0">
       <div className="flex flex-col gap-y-5 items-start">
