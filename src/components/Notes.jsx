@@ -39,7 +39,7 @@ const Notes = () => {
     if (navigator.share) {
       try {
         await navigator.share(shareData);
-        toast.success("Share your notes ");
+        toast.success("Share your notes! ");
       } catch (error) {
         console.error("Error sharing:", error);
         toast.error("Error sharing the note.");
